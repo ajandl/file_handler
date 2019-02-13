@@ -2,6 +2,7 @@
 import os
 import sys
 from shutil import copyfile
+import argparse
 
 
 def find_files(source_dir):
@@ -49,14 +50,27 @@ def copy_files(found_files, targ_dir):
             copyfile(f, new_path)
         except:
             print("Could not copy: ", f)
-        
+
+
+def move_filtered_files(source_dir, target_dir, filter_str):
+    all_files = find_files(source_dir)
+    found_files = filter_files(filter_str, all_files)
+    copy_files(found_files, target_dir)
+
 
 def main():
+    move_filtered_files(args.source_dir, args.target_dir, args.filter_str)
+    # move_filtered_files(
+    #     r"C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher",
+    #     r'C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher\feed_me',
+    #     "apple"
+    # )
 
-    all_files = find_files(r"C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher")
-    found_files = filter_files("apple", all_files)
-    copy_files(found_files, r'C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher\feed_me')
     
-
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('source_dir')
+    parser.add_argument('target_dir', help="Define the target directory")
+    parser.add_argument('filter_str')
+    args = parser.parse_args()
+    # main()

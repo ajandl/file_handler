@@ -2,3 +2,4 @@ feed_me/
 search_me/
 search_me - backup/
 *.pyc
+.vscode/

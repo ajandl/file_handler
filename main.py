@@ -73,4 +73,4 @@ if __name__ == '__main__':
     parser.add_argument('target_dir', help="Define the target directory")
     parser.add_argument('filter_str')
     args = parser.parse_args()
-    # main()
+    main()

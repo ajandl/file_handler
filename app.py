@@ -16,5 +16,6 @@ def get_data():
     data = request.args.get('input1')
     return f'Got the data: {data}'
 
+
 if __name__ == '__main__':
     app.run(debug=True)

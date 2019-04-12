@@ -7,7 +7,7 @@ import argparse
 
 def find_files(source_dir):
     """
-    function to travers source dir for all files
+    function to traverse source dir for all files
         input: string with search dir path
         return: list with all file names
     """
@@ -37,7 +37,7 @@ def filter_files(search_str, file_list):
 
 def copy_files(found_files, targ_dir):
     """
-    func to copy files to targe dir
+    func to copy files to target dir
         input: list of filtered file names 
         return: null
     """
@@ -58,8 +58,8 @@ def move_filtered_files(source_dir, target_dir, filter_str):
     copy_files(found_files, target_dir)
 
 
-def main():
-    move_filtered_files(args.source_dir, args.target_dir, args.filter_str)
+def main(source_dir, target_dir, filter_str):
+    move_filtered_files(source_dir, target_dir, filter_str)
     # move_filtered_files(
     #     r"C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher",
     #     r'C:\Users\jandl\OneDrive\Documents\Python Projects\File searcher\feed_me',
@@ -69,8 +69,8 @@ def main():
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('source_dir')
+    parser.add_argument('source_dir', help="Define the directory with files to work on")
     parser.add_argument('target_dir', help="Define the target directory")
     parser.add_argument('filter_str')
     args = parser.parse_args()
-    main()
+    main(args.source_dir, args.target_dir, args.filter_str)

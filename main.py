@@ -66,9 +66,9 @@ def folder_list_compare(folder_a, folder_b):
     """
     files_list_a = find_files(folder_a)
     files_list_b = find_files(folder_b)
-    common_files = set(a).intersection(b)
-    files_only_a = set(a).difference(b)
-    files_only_b = set(b).difference(a)
+    common_files = set(files_list_a).intersection(files_list_b)
+    files_only_a = set(files_list_a).difference(files_list_b)
+    files_only_b = set(files_list_b).difference(files_list_a)
     
     return (files_only_a, files_only_b, common_files)
 

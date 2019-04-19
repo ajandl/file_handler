@@ -58,6 +58,21 @@ def move_filtered_files(source_dir, target_dir, filter_str):
     copy_files(found_files, target_dir)
 
 
+def folder_list_compare(folder_a, folder_b):
+    """
+    func to compare list of files in two folders
+        input: two strings with paths to 2 folders to compare
+        retun: a tuple with 3 lists - files only in a, files only in b, and files in both
+    """
+    files_list_a = find_files(folder_a)
+    files_list_b = find_files(folder_b)
+    common_files = set(a).intersection(b)
+    files_only_a = set(a).difference(b)
+    files_only_b = set(b).difference(a)
+    
+    return (files_only_a, files_only_b, common_files)
+
+
 def main(source_dir, target_dir, filter_str):
     move_filtered_files(source_dir, target_dir, filter_str)
     # move_filtered_files(

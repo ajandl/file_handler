@@ -82,9 +82,10 @@ def copy_filtered_files_multi(source_dir, target_dir, filter_list):
 #     # )
 
 def main():
-    filter_list = get_filter_list(r"\\group.iqep.com\ma\user\ajandl\My Documents\Data\For customer\Lasertel\19-05-15 More Surfscan\filter_list.txt")
-    print(filter_list)
-
+    filter_list = get_filter_list(r"\\group.iqep.com\ma\user\ajandl\My Documents\Python\Test data\filter_list.txt")
+    source_dir = r'\\group.iqep.com\ma\user\ajandl\My Documents\Python\Test data\source'
+    target_dir = r'\\group.iqep.com\ma\user\ajandl\My Documents\Python\Test data\target'
+    copy_filtered_files_multi(source_dir, target_dir,['GAIN', 'C02'])
     
 if __name__ == '__main__':
     main()
